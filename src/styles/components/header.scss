@@ -1,0 +1,102 @@
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    background-color: #fff;
+    box-shadow: 0px 0px 62px 18px rgba(0, 0, 0, 0.23);
+    z-index: 99;
+    img {
+        @include mq(768) {
+            max-width: 100px;
+        }
+    }
+
+    .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+
+        .nav {
+            @include mq(980) {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: #fff;
+                visibility: hidden;
+                z-index: -1;
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
+
+                &.active {
+                    visibility: visible;
+                    opacity: 1;
+                    z-index: 1;
+                }
+            }
+
+        }
+
+        .nav__list {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            grid-gap: 40px;
+
+            @include mq(980) {
+                padding: 40px 20px;
+                display: grid;
+            }
+
+            a {
+                position: relative;
+                color: var(--text-color);
+                font-size: 15px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                letter-spacing: 0.469px;
+
+                @include mq(980) {
+                    font-size: 40px;
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: -5px;
+                    height: 2px;
+                    width: 0%;
+                    background-color: var(--blue-color);
+                    transition: 0.3s ease-in-out;
+                }
+
+                &.active,
+                &:hover {
+                    color: var(--tilte-color);
+
+                    &::before {
+                        width: 100%;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .burger {
+        display: none;
+
+        @include burger;
+
+        @include mq(980) {
+            display: grid;
+            flex-shrink: 0;
+        }
+    }
+}

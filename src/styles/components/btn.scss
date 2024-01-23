@@ -1,0 +1,47 @@
+.btn {
+    color: #FFF;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.531px;
+    border-radius: 10px;
+    max-width: 210px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60px;
+    transition: 0.3s ease-in-out;
+    @include mq(768){
+        min-height: 40px;
+    }
+
+    &_orange {
+        background: var(--orange-color);
+
+        &:hover {
+            background-color: #ff7243d3;
+        }
+    }
+
+    &_blue {
+        background: var(--blue-color);
+
+        &:hover {
+            background-color: #5454d4dd;
+        }
+    }
+}
+
+.btn_link {
+    color: var(--blue-color);
+    font-size: 17px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.531px;
+    transition: color 0.3s ease-in;
+    &:hover{
+        color: var(--orange-color)
+    }
+}

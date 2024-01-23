@@ -1,0 +1,335 @@
+// Hero Section
+.hero {
+    .wrpper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 50px;
+
+        @include mq(980) {
+            grid-gap: 30px;
+        }
+
+        @include mq(768) {
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: 20px;
+        }
+
+        .left {
+            display: grid;
+            grid-gap: 40px;
+            margin: auto 0;
+
+            @include mq(980) {
+                grid-gap: 30px;
+            }
+
+            @include mq(768) {
+                grid-gap: 20px;
+            }
+
+            .hero_btn__container {
+                display: flex;
+                align-items: center;
+                gap: 40px;
+            }
+
+            button {
+                width: 60px;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                border: 1px solid #E7E7E7;
+                cursor: pointer;
+                animation: buttonAnim 3s infinite forwards;
+
+                @include mq(768) {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+        }
+    }
+}
+
+@keyframes buttonAnim {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+
+// Partners section
+.partners {
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 20px;
+        place-items: center;
+
+        @include mq(980) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @include mq(768) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}
+
+// Partners section End
+
+// Subscription section
+.subscription {
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 50px;
+        place-items: center;
+
+        @include mq(768) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        .right {
+            display: grid;
+            grid-gap: 30px;
+        }
+    }
+
+    &.reverse {
+        .left {
+            grid-column: 2/3;
+
+            @include mq(768) {
+                grid-column: auto;
+            }
+        }
+
+        .right {
+            grid-column: 1;
+            grid-row: 1;
+
+            @include mq(768) {
+                grid-row: auto;
+            }
+        }
+    }
+}
+
+// Subscription section END
+
+// Section Benefits
+.benefits {
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 40px;
+        place-content: center;
+
+        @include mq(980) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include mq(768) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        .card {
+            display: grid;
+            place-items: center;
+            grid-gap: 20px;
+            text-align: center;
+        }
+    }
+}
+
+// Section Benefits END
+
+
+// Section Price 
+.price {
+    .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include mq(980) {
+            flex-direction: column;
+            gap: 20px;
+
+            .title {
+                text-align: center;
+            }
+        }
+
+        .tabs_top {
+            padding: 5px;
+            border-radius: 10px;
+            background: #F7F7FB;
+        }
+
+        .tab_bnt {
+            padding: 18px;
+            width: 175px;
+            color: var(--tilte-color);
+            text-align: center;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: normal;
+            letter-spacing: -0.5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+
+            &:hover,
+            &.active {
+                color: #FFF;
+                background-color: var(--blue-color)
+            }
+
+            @include mq(768) {
+                width: 135px;
+            }
+        }
+    }
+
+    @include tabs;
+
+    .title {
+        max-width: 580px;
+    }
+
+    .tabs_content {
+        margin-top: 80px;
+
+        @include mq(980) {
+            margin-top: 40px;
+        }
+
+        @include mq(768) {
+            margin-top: 20px;
+        }
+
+        &.active {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            grid-gap: 20px;
+            align-items: center;
+
+            @include mq(1200) {
+                grid-template-columns: repeat(2, auto);
+            }
+
+            @include mq(768) {
+                grid-template-columns: repeat(1, auto);
+            }
+        }
+
+        .price_card {
+            // min-height: 440px;
+            min-width: 350px;
+            width: 100%;
+            display: grid;
+            grid-gap: 20px;
+            place-items: center;
+            padding: 34px 21px;
+            border-radius: 10px;
+            border: 1px solid #EAE9F2;
+            background: #FFF;
+
+            @include mq(768) {
+                min-width: 100%;
+            }
+
+            .title {
+                color: #696871;
+                text-align: center;
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 28px;
+                letter-spacing: -0.563px;
+            }
+
+            .price_product {
+                color: #1D293F;
+                text-align: center;
+                font-size: 60px;
+                font-weight: 700;
+                line-height: 56px;
+                letter-spacing: -1.034px;
+
+                span {
+                    color: #1D293F;
+                    font-size: 28px;
+                    font-weight: 700;
+                    line-height: 56px;
+                    letter-spacing: -1.034px;
+                }
+            }
+
+            ul {
+                display: grid;
+                grid-gap: 15px;
+                color: #696871;
+                text-align: center;
+                font-size: 17px;
+                font-weight: 400;
+                line-height: 20px;
+                letter-spacing: -0.531px;
+            }
+
+            a {
+                width: 100%;
+                padding: 19px;
+                text-align: center;
+                color: var(--blue-color);
+                font-size: 17px;
+                font-weight: 700;
+                line-height: normal;
+                letter-spacing: -0.531px;
+                border-radius: 10px;
+                border: 1px solid #EAE9F2;
+                background: #FFF;
+                transition: opacity 0.3s ease-in-out;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+
+            &.orange {
+                padding: 50px 37px;
+                background: #FF7143;
+                box-shadow: 0px 32px 34px 0px rgba(255, 112, 59, 0.32);
+
+                .title,
+                .price_product,
+                span,
+                ul,
+                a {
+                    color: #fff;
+                }
+
+                a {
+                    background: #9F3919;
+                    border: 0;
+                }
+            }
+        }
+
+    }
+
+
+}
+
+// Section Price END
